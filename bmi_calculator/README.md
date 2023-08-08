@@ -1,4 +1,4 @@
-# gas_leakage_detector
+# BMICalculator
 
 A new Flutter project.
 
