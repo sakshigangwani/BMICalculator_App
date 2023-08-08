@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 class InputPage extends StatefulWidget {
   const InputPage({super.key});
 
@@ -11,17 +12,44 @@ class _InputPageState extends State<InputPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('BMI Calculator'),
-        backgroundColor: Color(0xFF0A0E21),
+        title: const Center(child: Text('BMI Calculator')),
+        backgroundColor: const Color(0xFF0A0E21),
       ),
-      body: const Center(
-        child: Text(
-          'Body Text',
-          style: TextStyle(
-            color: Colors.white,
+      body: Column(
+        children: [
+          Expanded(
+            child: Row(
+              children: [
+                Expanded(child: ResuableCard(Color(0xFF1D1E33))),
+                Expanded(child: ResuableCard(Color(0xFF1D1E33))),
+              ],
+            ),
           ),
-        ),
+          Expanded(child: ResuableCard(Color(0xFF1D1E33))),
+          Expanded(
+              child: Row(
+            children: [
+              Expanded(child: ResuableCard(Color(0xFF1D1E33))),
+              Expanded(child: ResuableCard(Color(0xFF1D1E33))),
+            ],
+          ))
+        ],
       ),
+    );
+  }
+}
+
+class ResuableCard extends StatelessWidget {
+  ResuableCard(this.colour);
+  final Color colour;
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10.0),
+        color: colour,
+      ),
+      margin: const EdgeInsets.all(15.0),
     );
   }
 }
